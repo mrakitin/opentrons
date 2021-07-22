@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+pytest = "*"
+pyautogui = "*"
+psutil = "*"
+eyes-common = "*"
+eyes-images = "*"
+requests = "*"
+pygetwindow = "*"
+python-dotenv = "*"
+flake8 = "~=3.9.0"
+flake8-annotations = "~=2.6.2"
+flake8-docstrings = "~=1.6.0"
+flake8-noqa = "~=1.1.0"
+diff-match-patch = "*"
+black = "==19.3b0"
+mypy = "*"
+pylint = "*"
+
+[requires]
+python_version = "3"
