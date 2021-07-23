@@ -1,5 +1,6 @@
 """Elements on the screen we will locate with coordinates."""
 from dataclasses import dataclass
+import platform
 from src.ot_region import OtRegion
 
 
@@ -17,6 +18,7 @@ class Locators:
     def __init__(self, ot_region: OtRegion) -> None:
         """Load the region."""
         self.ot_region: OtRegion = ot_region
+        self.platform = platform.system()
 
     def more_menu(self) -> Location:
         """More menu on bottom left."""
@@ -27,9 +29,17 @@ class Locators:
 
     def privacy_toggle(self) -> Location:
         """Privacy toggle button."""
-        return Location(
-            self.ot_region.x_ot_screen_zero + 947, self.ot_region.y_ot_screen_zero + 523
-        )
+        locator = {
+            "Windows": Location(
+                self.ot_region.x_ot_screen_zero + 947,
+                self.ot_region.y_ot_screen_zero + 523,
+            ),
+            "Darwin": Location(
+                self.ot_region.x_ot_screen_zero + (1920 / 2),
+                self.ot_region.y_ot_screen_zero + (1005 / 2),
+            ),
+        }
+        return locator.get(self.platform)
 
     def top_bar_center(self) -> Location:
         """Usefull to activate the window."""

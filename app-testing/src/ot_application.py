@@ -42,10 +42,11 @@ class OtApplication:
         return False
 
     def start(self) -> None:
-        """Start the Opentrons executable."""
+        """Start the Opentrons executable.  See /app-shell/README.md for arguments."""
         if self.alive():
             pass
         self.process = Popen([self.executable_path])  # pylint: disable=R1732
+        logger.info(f"launch command: {self.process.args}")
         time.sleep(2)  # wait until we see render in the log???
 
     def stop(self) -> None:

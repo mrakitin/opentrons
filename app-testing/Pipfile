@@ -20,6 +20,9 @@ diff-match-patch = "*"
 black = "==19.3b0"
 mypy = "*"
 pylint = "*"
+pyobjc = "*"
+pyobjc-core = "*"
+
 
 [requires]
 python_version = "3"

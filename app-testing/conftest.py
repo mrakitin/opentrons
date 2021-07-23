@@ -1,6 +1,7 @@
 """For pytest."""
 import logging
 import os
+import platform
 import pytest
 from applitools.images import Eyes, BatchInfo
 from dotenv import load_dotenv, find_dotenv
@@ -21,7 +22,7 @@ logger.info(os.environ)
 def eyes_setup() -> Eyes:
     """Basic Eyes setup. It'll abort test if wasn't closed properly."""
     eyes = Eyes()
-    eyes.configure.batch = BatchInfo("Demo Batch - Images - Python")
+    eyes.configure.batch = BatchInfo(f"Images - {platform.system()}")
     yield eyes
     # If the test was aborted before eyes.close was called, ends the test as aborted.
     eyes.abort()
